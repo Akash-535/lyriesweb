@@ -3,20 +3,21 @@ import { LogoIcon, SearchIcon } from "../utils/icons";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div className="w-full max-w-[1128px] mx-auto shadow-header-shadow rounded-[20px] flex items-center justify-between py-[10px] max-md:flex-wrap-reverse max-lg:gap-6 max-sm:gap-2 mt-[10px]">
+    <div className="w-full max-w-[1128px] mx-auto shadow-header-shadow rounded-[20px] flex items-center justify-between py-[10px] max-md:flex-wrap max-lg:gap-6 max-sm:gap-2 mt-[10px]">
       <Link to="/" className="ps-[38px] max-md:ps-6">
         <LogoIcon />
       </Link>
-      <div className=" max-md:hidden flex items-center rounded-full w-full max-w-[650px] justify-between border border-solid border-light-purple ps-[30px] pe-2 max-lg:ps-2">
+      <form className=" max-md:hidden flex items-center rounded-full w-full max-w-[650px] justify-between border border-solid border-light-purple ps-[30px] pe-2 max-lg:ps-2">
         <input
           type="text"
+          required
           placeholder="What do you feel like listening to right now ?"
           className=" placeholder:text-sm text-sm font-normal placeholder:font-normal leading-custom-5xl placeholder:left-6 placeholder:text-custom-gray text-custom-gray outline-none w-full bg-transparent"
         />
-        <span className="flex items-center justify-center p-[11.94px_12.08px_11.08px_10.95px] rounded-full bg-custom-black cursor-pointer my-[6px] hover:scale-110 duration-300 ease-linear">
+        <button className="flex items-center justify-center p-[11.94px_12.08px_11.08px_10.95px] rounded-full bg-custom-black cursor-pointer my-[6px] hover:scale-110 duration-300 ease-linear">
           <SearchIcon />
-        </span>
-      </div>
+        </button>
+      </form>
       <div className="flex items-center gap-5">
         <button className="text-darkBlack text-sm leading-6 font-normal transition-all ease-linear duration-300 hover:scale-110">
           Login
