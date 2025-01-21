@@ -8,13 +8,13 @@ const Hero = () => {
   const [, setDomain] = useState(null);
   const [word, setWord] = useState("HIT ME HARD AND SOFT");
   const [alpha, setAlpha] = useState();
-  const navigate = useNavigate();
-  const changeTextHandler = (newDomain) => {
-    setDomain(newDomain);
-    navigate(`?value=${newDomain}`);
-    setWord(`HIT ME HARD AND ${newDomain.toUpperCase()}`);
+  const navigateText = useNavigate();
+  const changeTextHandler = (e) => {
+    setDomain(e);
+    navigateText(`?value=${e}`);
+    setWord(`HIT ME HARD AND ${e.toUpperCase()}`);
   };
-  const handleChange = (newText) => setAlpha(`${newText}`);
+  const handleChange = (newWord) => setAlpha(`${newWord}`);
   return (
     <div className="pt-[10px] pb-10 bg-off-white px-4">
       <Header />
@@ -22,27 +22,24 @@ const Hero = () => {
         <div className="flex items-center gap-[15px] pt-[17px] max-xl:overflow-x-auto pb-2">
           <div className="flex items-center gap-5 me-[15px]">
             <button
-              className="min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
+              className="min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-custom-black"
               onClick={() => changeTextHandler("all")}
             >
               All
             </button>
             <button
-              className="min-w-[47px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
+              className="min-w-[47px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-custom-black"
               onClick={() => changeTextHandler("pop")}
             >
               Pop
             </button>
             <button
-              className="h-[29px] min-w-[54px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
+              className="h-[29px] min-w-[54px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-custom-black"
               onClick={() => changeTextHandler("rock")}
             >
               Rock
             </button>
-            <button
-              className="flex items-center gap-4 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 font-normal text-darkBlack"
-              onClick={() => changeTextHandler("soft")}
-            >
+            <button className="flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 font-normal text-darkBlack">
               More <DownArrowIcon />
             </button>
           </div>
@@ -52,7 +49,7 @@ const Hero = () => {
                 <Link
                   onClick={() => handleChange(item)}
                   key={index}
-                  to="#link"
+                  to="#"
                   className="flex items-center hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl"
                 >
                   {item}
@@ -61,7 +58,7 @@ const Hero = () => {
             })}
           </div>
         </div>
-        <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
+        <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20 max-md:justify-center">
           <h1 className="font-Montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl">
             {word}
           </h1>
