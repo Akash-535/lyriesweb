@@ -22,6 +22,7 @@ module.exports = {
         'light-purple':"#DBDBF3"
       },
       lineHeight:{
+        "custom-3xl":"121%",
         "custom-5xl":"171%"
       },
       boxShadow:{

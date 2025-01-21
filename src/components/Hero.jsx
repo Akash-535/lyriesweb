@@ -2,19 +2,17 @@ import React, { useState } from "react";
 import Header from "../common/Header";
 import { ALPHABET_LIST } from "../utils/helper";
 import { DownArrowIcon } from "../utils/icons";
-import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 const Hero = () => {
   const [domin, setDomain] = useSearchParams();
-  const [word, setWord] = useState("HIT ME HARD AND SOFT");
   const [alpha, setAlpha] = useState();
-
-  domin.get("e");
-  const changeTextHandler = (e) => {
-    setDomain({ e });
-    setWord(`HIT ME HARD AND ${e.toUpperCase()}`);
+  domin.get("value");
+  const changeTextHandler = (value) => {
+    setDomain({ value });
   };
   const handleChange = (newWord) => setAlpha(`${newWord}`);
+
   return (
     <div className="pt-[10px] pb-10 bg-off-white px-4">
       <Header />
@@ -23,7 +21,7 @@ const Hero = () => {
           <div className="flex items-center gap-1.5">
             <button
               className={`min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("e") === "all" ? "bg-black !text-white" : ""
+                domin.get("value") === "all" ? "!bg-black !text-white" : ""
               }`}
               onClick={() => changeTextHandler("all")}
             >
@@ -31,7 +29,7 @@ const Hero = () => {
             </button>
             <button
               className={`min-w-[47px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("e") === "pop" ? "bg-black !text-white" : ""
+                domin.get("value") === "pop" ? "!bg-black !text-white" : ""
               }`}
               onClick={() => changeTextHandler("pop")}
             >
@@ -39,7 +37,7 @@ const Hero = () => {
             </button>
             <button
               className={`h-[29px] min-w-[54px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("e") === "rock" ? "bg-black !text-white" : ""
+                domin.get("value") === "rock" ? "!bg-black !text-white" : ""
               }`}
               onClick={() => changeTextHandler("rock")}
             >
@@ -47,8 +45,8 @@ const Hero = () => {
             </button>
             <button
               className={`flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("e") === "song"
-                  ? "bg-black !text-white button-arrow"
+                domin.get("value") === "song"
+                  ? "!bg-black !text-white button-arrow"
                   : ""
               }`}
               onClick={() => changeTextHandler("song")}
@@ -72,8 +70,17 @@ const Hero = () => {
           </div>
         </div>
         <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20 max-sm:justify-center">
-          <h1 className="font-Montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl">
-            {word}
+          <h1 className="font-montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl uppercase">
+            Hit Me Hard an{" "}
+            {domin.get("value") === "all"
+              ? "all"
+              : domin.get("value") === "pop"
+              ? "Pop"
+              : domin.get("value") === "rock"
+              ? "Rock"
+              : domin.get("value") === "song"
+              ? "More"
+              : "Soft"}
           </h1>
           <img
             src="./assets/images/hero-img.webp"
