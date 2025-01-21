@@ -9,7 +9,7 @@ const Hero = () => {
   const [word, setWord] = useState("HIT ME HARD AND SOFT");
   const [alphaText, setAlphaText] = useState();
   const navigate = useNavigate();
-  const handleDomainChange = (newDomain) => {
+  const changeTextHandler = (newDomain) => {
     setDomain(newDomain);
     navigate(`?value=${newDomain}`);
     setWord(`HIT ME HARD AND ${newDomain.toUpperCase()}`);
@@ -23,25 +23,25 @@ const Hero = () => {
           <div className="flex items-center gap-5 me-[15px]">
             <button
               className="min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
-              customOnClick={() => handleDomainChange("all")}
+              customOnClick={() => changeTextHandler("all")}
             >
               All
             </button>
             <button
               className="min-w-[47px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
-              customOnClick={() => handleDomainChange("all")}
+              customOnClick={() => changeTextHandler("all")}
             >
               Pop
             </button>
             <button
               className="h-[29px] min-w-[54px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
-              customOnClick={() => handleDomainChange("all")}
+              customOnClick={() => changeTextHandler("all")}
             >
               Rock
             </button>
             <button
               className="flex items-center gap-4 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 font-normal text-darkBlack"
-              customOnClick={() => handleDomainChange("all")}
+              customOnClick={() => changeTextHandler("all")}
             >
               More <DownArrowIcon />
             </button>
