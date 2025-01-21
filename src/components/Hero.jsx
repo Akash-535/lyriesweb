@@ -7,14 +7,14 @@ import { useNavigate } from "react-router-dom";
 const Hero = () => {
   const [, setDomain] = useState(null);
   const [word, setWord] = useState("HIT ME HARD AND SOFT");
-  const [alphaText, setAlphaText] = useState();
+  const [alpha, setAlpha] = useState();
   const navigate = useNavigate();
   const changeTextHandler = (newDomain) => {
     setDomain(newDomain);
     navigate(`?value=${newDomain}`);
     setWord(`HIT ME HARD AND ${newDomain.toUpperCase()}`);
   };
-  const handleChange = (newText) => setAlphaText(`${newText}`);
+  const handleChange = (newText) => setAlpha(`${newText}`);
   return (
     <div className="pt-[10px] pb-10 bg-off-white">
       <Header />
@@ -23,25 +23,25 @@ const Hero = () => {
           <div className="flex items-center gap-5 me-[15px]">
             <button
               className="min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
-              customOnClick={() => changeTextHandler("all")}
+              onClick={() => changeTextHandler("all")}
             >
               All
             </button>
             <button
               className="min-w-[47px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
-              customOnClick={() => changeTextHandler("all")}
+              onClick={() => changeTextHandler("pop")}
             >
               Pop
             </button>
             <button
               className="h-[29px] min-w-[54px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 hover:bg-black hover:text-white font-normal text-darkBlack"
-              customOnClick={() => changeTextHandler("all")}
+              onClick={() => changeTextHandler("rock")}
             >
               Rock
             </button>
             <button
               className="flex items-center gap-4 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 font-normal text-darkBlack"
-              customOnClick={() => changeTextHandler("all")}
+              onClick={() => changeTextHandler("song")}
             >
               More <DownArrowIcon />
             </button>
@@ -78,7 +78,7 @@ const Hero = () => {
             />
             <div>
               <p className="font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg">
-                Billie Eilish {alphaText}
+                Billie Eilish {alpha}
               </p>
               <p className="font-montserrat font-medium text-base leading-5 text-white pt-[5px] max-lg:pt-0 pb-[21px] max-sm:text-sm font-Montserrat">
                 Relesed May 17, 2024
