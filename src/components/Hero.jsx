@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../common/Header";
 import { ALPHABET_LIST } from "../utils/helper";
 import { DownArrowIcon } from "../utils/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const [, setDomain] = useState(null);
@@ -41,7 +41,7 @@ const Hero = () => {
             </button>
             <button
               className="flex items-center gap-4 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-200 font-normal text-darkBlack"
-              onClick={() => changeTextHandler("song")}
+              onClick={() => changeTextHandler("soft")}
             >
               More <DownArrowIcon />
             </button>
@@ -49,14 +49,14 @@ const Hero = () => {
           <div className="flex items-center gap-[2px]">
             {ALPHABET_LIST.map(function (item, index) {
               return (
-                <a
+                <Link
                   onClick={() => handleChange(item)}
                   key={index}
-                  href="#link"
+                  to="#link"
                   className="flex items-center hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl"
                 >
                   {item}
-                </a>
+                </Link>
               );
             })}
           </div>
