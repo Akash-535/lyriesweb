@@ -21,15 +21,15 @@ const Header = () => {
         <button className="text-darkBlack text-sm leading-6 font-normal transition-all ease-linear duration-300 hover:scale-110">
           Login
         </button>
-        <button className="me-3 bg-custom-black border border-solid border-transparent hover:bg-white hover:text-darkBlack transition-all ease-linear duration-300 hover:border-darkBlack text-white font-medium text-sm leading-6 rounded-[9px] w-full min-w-[105px] max-sm:min-w-[85px] py-[9px] h-[43px]">
+        <button className="me-3 bg-custom-black border border-solid border-transparent hover:bg-white hover:text-custom-black transition-all ease-linear duration-300 hover:border-custom-black text-white font-medium text-sm leading-6 rounded-[9px] w-full min-w-[105px] max-sm:min-w-[85px] py-[9px] h-[43px]">
           Sign Up
         </button>
       </div>
-      <div className="md:hidden flex mx-3 items-center rounded-full w-full max-w-[650px] justify-between border border-solid border-offBlue ps-[30px] pe-2 max-md:ps-2">
+      <div className="md:hidden flex mx-3 items-center rounded-full w-full max-w-[650px] justify-between border border-solid border-light-purple ps-[30px] pe-2 max-md:ps-2">
         <input
           type="text"
-          placeholder="What do you feel like listening to right now ?"
-          className=" placeholder:text-sm text-sm font-normal placeholder:font-normal leading-6 placeholder:left-6 placeholder:text-lightGray outline-none w-full max-md:text-xs"
+          placeholder="What do you feel ?"
+          className=" placeholder:text-sm text-sm font-normal placeholder:font-normal leading-6 placeholder:left-6 placeholder:text-custom-gray outline-none max-md:text-xs bg-transparent w-6/12"
         />
         <p className="flex items-center justify-center h-[39px] min-w-[39px] rounded-full bg-custom-black cursor-pointer my-[6px]">
           <SearchIcon />

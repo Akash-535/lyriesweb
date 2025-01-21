@@ -16,7 +16,7 @@ const Hero = () => {
   };
   const handleChange = (newText) => setAlpha(`${newText}`);
   return (
-    <div className="pt-[10px] pb-10 bg-off-white">
+    <div className="pt-[10px] pb-10 bg-off-white px-4">
       <Header />
       <div className="container mx-auto">
         <div className="flex items-center gap-[15px] pt-[17px] max-xl:overflow-x-auto pb-2">
