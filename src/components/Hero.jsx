@@ -10,21 +10,23 @@ import {
 } from "react-router-dom";
 
 const Hero = () => {
-  const [domain, setDomain] = useState();
   const [alpha, setAlpha] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
+  const [domain, setDomain] = useState();
+  const navigate = useNavigate();
+  const { value = "all" } = useParams();
 
-  const nevigate = useNavigate();
   const changeDomainHandler = (value) => {
-    nevigate(`/${value}`);
     setDomain(value);
+    navigate(`/${value}`);
   };
   useEffect(() => {
     const initialAlpha = searchParams.get("alpha");
     if (initialAlpha) {
       setAlpha(initialAlpha);
     }
-  }, [searchParams]);
+    setDomain(value);
+  }, [searchParams, value]);
   const handleAlphabetChange = (letter) => {
     setAlpha(letter.toLowerCase());
     setSearchParams({ alpha: letter.toLowerCase() });
@@ -60,14 +62,37 @@ const Hero = () => {
             >
               Rock
             </button>
-            <button
+            {/* <select
               className={`flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black btn-arrow ${
                 domain === "song" ? "!bg-black !text-white button-arrow" : ""
               }`}
-              onClick={() => changeDomainHandler("song")}
+              onClick={() => changeDomainHandler("more")}
             >
               More <DownArrowIcon />
-            </button>
+            </select> */}
+            <div
+              className={`appearance-none flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black btn-arrow ${
+                domain === "song" ? "!bg-black !text-white button-arrow" : ""
+              }`}
+              onClick={() => changeDomainHandler("more")}
+            >
+              <select
+                className={`outline-none bg-transparent ${
+                  domain === "song" ? "!bg-black !text-white button-arrow" : ""
+                }`}
+              >
+                <option value="Option 1" className="bg-black text-white">
+                  More
+                </option>
+                <option value="Option 2" className="bg-black text-white">
+                  Song
+                </option>
+                <option value="Option 3" className="bg-black text-white">
+                  Music
+                </option>
+                <DownArrowIcon />
+              </select>
+            </div>
           </div>
           <div className="flex items-center gap-[2px]">
             {ALPHABET_LIST.map((item, index) => {
@@ -97,7 +122,7 @@ const Hero = () => {
               ? "Pop"
               : domain === "rock"
               ? "Rock"
-              : domain === "song"
+              : domain === "more"
               ? "More"
               : "Soft"}
           </h1>

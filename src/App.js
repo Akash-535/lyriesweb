@@ -7,6 +7,7 @@ function App() {
   <>
     <BrowserRouter>
         <Routes>
+        <Route path="/" element={<Hero />} />
           <Route path="/:value" element={<Hero />} />
         </Routes>
       </BrowserRouter>
