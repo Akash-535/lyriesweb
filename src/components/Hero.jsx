@@ -2,14 +2,21 @@ import React, { useState, useEffect } from "react";
 import Header from "../common/Header";
 import { ALPHABET_LIST } from "../utils/helper";
 import { DownArrowIcon } from "../utils/icons";
-import { Link, useParams, useSearchParams } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useParams,
+  useSearchParams,
+} from "react-router-dom";
 
 const Hero = () => {
-  const [domain, setDomain] = useParams("all");
+  const [domain, setDomain] = useState();
   const [alpha, setAlpha] = useState("");
   const [searchParams, setSearchParams] = useSearchParams();
 
+  const nevigate = useNavigate();
   const changeDomainHandler = (value) => {
+    nevigate(`/${value}`);
     setDomain(value);
   };
   useEffect(() => {
