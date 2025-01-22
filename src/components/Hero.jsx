@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../common/Header";
 import { ALPHABET_LIST } from "../utils/helper";
 import { DownArrowIcon } from "../utils/icons";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useParams, useSearchParams } from "react-router-dom";
 
 const Hero = () => {
-  const [domin, setDomain] = useSearchParams();
-  const [alpha, setAlpha] = useState();
-  domin.get("value");
-  const changeTextHandler = (value) => {
-    setDomain({ value });
+  const [domain, setDomain] = useParams("all");
+  const [alpha, setAlpha] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const changeDomainHandler = (value) => {
+    setDomain(value);
   };
-  const handleChange = (newWord) => setAlpha(`${newWord}`);
+  useEffect(() => {
+    const initialAlpha = searchParams.get("alpha");
+    if (initialAlpha) {
+      setAlpha(initialAlpha);
+    }
+  }, [searchParams]);
+  const handleAlphabetChange = (letter) => {
+    setAlpha(letter.toLowerCase());
+    setSearchParams({ alpha: letter.toLowerCase() });
+  };
 
   return (
     <div className="pt-[10px] pb-10 bg-off-white px-4">
@@ -21,44 +31,45 @@ const Hero = () => {
           <div className="flex items-center gap-1.5">
             <button
               className={`min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("value") === "all" ? "!bg-black !text-white" : ""
+                domain === "all" ? "!bg-black !text-white" : ""
               }`}
-              onClick={() => changeTextHandler("all")}
+              onClick={() => changeDomainHandler("all")}
             >
               All
             </button>
             <button
               className={`min-w-[47px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("value") === "pop" ? "!bg-black !text-white" : ""
+                domain === "pop" ? "!bg-black !text-white" : ""
               }`}
-              onClick={() => changeTextHandler("pop")}
+              onClick={() => changeDomainHandler("pop")}
             >
               Pop
             </button>
             <button
               className={`h-[29px] min-w-[54px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${
-                domin.get("value") === "rock" ? "!bg-black !text-white" : ""
+                domain === "rock" ? "!bg-black !text-white" : ""
               }`}
-              onClick={() => changeTextHandler("rock")}
+              onClick={() => changeDomainHandler("rock")}
             >
               Rock
             </button>
             <button
               className={`flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black btn-arrow ${
-                domin.get("value") === "song"
-                  ? "!bg-black !text-white button-arrow"
-                  : ""
+                domain === "song" ? "!bg-black !text-white button-arrow" : ""
               }`}
-              onClick={() => changeTextHandler("song")}
+              onClick={() => changeDomainHandler("song")}
             >
               More <DownArrowIcon />
             </button>
           </div>
           <div className="flex items-center gap-[2px]">
-            {ALPHABET_LIST.map(function (item, index) {
+            {ALPHABET_LIST.map((item, index) => {
               return (
                 <Link
-                  onClick={() => handleChange(item)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleAlphabetChange(item);
+                  }}
                   key={index}
                   to="#"
                   className="flex items-center hover:bg-custom-black size-7 justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl max-md:size-5"
@@ -69,16 +80,17 @@ const Hero = () => {
             })}
           </div>
         </div>
+
         <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20 max-sm:justify-center">
           <h1 className="font-montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl uppercase">
-            Hit Me Hard an{" "}
-            {domin.get("value") === "all"
+            Hit Me Hard and{" "}
+            {domain === "all"
               ? "all"
-              : domin.get("value") === "pop"
+              : domain === "pop"
               ? "Pop"
-              : domin.get("value") === "rock"
+              : domain === "rock"
               ? "Rock"
-              : domin.get("value") === "song"
+              : domain === "song"
               ? "More"
               : "Soft"}
           </h1>
@@ -97,10 +109,11 @@ const Hero = () => {
             </div>
             <div>
               <p className="font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg">
-                Billie Eilish {alpha}
+                Billie Eilish{" "}
+                <span className="uppercase">{alpha ? `${alpha}` : ""}</span>
               </p>
               <p className="font-montserrat font-medium text-base leading-5 text-white pt-[5px] max-lg:pt-0 pb-[21px] max-sm:text-sm font-Montserrat">
-                Relesed May 17, 2024
+                Released May 17, 2024
               </p>
             </div>
           </div>
