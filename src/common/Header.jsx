@@ -3,7 +3,7 @@ import { LogoIcon, SearchIcon } from "../utils/icons";
 import { Link } from "react-router-dom";
 const Header = () => {
   return (
-    <div className="w-full max-w-[1128px] mx-auto shadow-header-shadow rounded-[20px] flex items-center justify-between py-[10px] max-md:flex-wrap max-lg:gap-6 max-sm:gap-2 mt-[10px]">
+    <div className="w-full max-w-[1128px] mx-auto shadow-header-shadow rounded-[20px] flex items-center justify-between py-[10px] max-md:flex-wrap max-lg:gap-6 max-sm:gap-2">
       <Link to="/" className="ps-[38px] max-md:ps-6">
         <LogoIcon />
       </Link>

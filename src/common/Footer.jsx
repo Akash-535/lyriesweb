@@ -41,7 +41,7 @@ const Footer = () => {
         </div>
       </div>
       {/* Footer items */}
-      <div className="pt-16 container px-5 flex gap-32 items-center max-xl:gap-28 max-lg:flex-col max-lg:justify-center max-lg:gap-24 max-md:gap-12 max-sm:gap-8 max-lg:py-12 max-md:py-9 max-sm:py-7 pb-[89px] max-xl:pb-16">
+      <div className="pt-[60px] container px-5 flex gap-32 items-center max-xl:gap-28 max-lg:flex-col max-lg:justify-center max-lg:gap-24 max-md:gap-12 max-sm:gap-8 max-lg:py-12 max-md:py-9 max-sm:py-7 pb-[89px] max-xl:pb-16">
         <div className="w-7/12 flex justify-between max-w-[598px] max-lg:w-full max-md:mx-auto max-md:flex-wrap max-md:gap-8">
           {FOOTER_LIST.map((obj, i) => (
             <div key={i}>
@@ -88,7 +88,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="border-t border-light-purple">
-        <div className="pt-8 w-full flex justify-between items-center text-center max-w-[1131px] mx-auto flex-wrap px-5 max-md:justify-center max-md:gap-3 max-md:pt-5">
+        <div className="pt-[30px] w-full flex justify-between items-center text-center max-w-[1131px] mx-auto flex-wrap px-5 max-md:justify-center max-md:gap-3 max-md:pt-5">
           <p className="text-sm leading-custom-5xl text-custom-black font-normal">
             All rights reserved to Global Media Holdings Ltd. {getYear}
           </p>

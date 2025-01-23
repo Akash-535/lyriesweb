@@ -33,10 +33,10 @@ const Hero = () => {
   };
 
   return (
-    <div className="pt-[10px] pb-10 px-4">
+    <div className="pb-10 px-4">
       <Header />
       <div className="container mx-auto">
-        <div className="flex items-center gap-3.5 max-md:gap-1.5 pt-[17px] max-xl:overflow-x-auto pb-2 max-w-[1059px] pl-2.5">
+        <div className="flex items-center gap-3.5 max-md:gap-1.5 pt-[17px] max-xl:overflow-x-auto max-w-[1059px] pl-2.5">
           <div className="flex items-center gap-1.5">
             <button
               className={`min-w-[49px] h-[29px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black ${

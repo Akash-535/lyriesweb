@@ -17,8 +17,8 @@ const Songs = () => {
   };
 
   return (
-    <div className="container pt-[100px] px-5 max-lg:pt-20 max-md:pt-14 max-sm:pt-7">
-      <h2 className="text-5xl leading-custom-3xl text-black-again tracking-[1.22px] pb-7 max-lg:text-center max-lg:text-4xl max-md:text-3xl max-md:pb-4">
+    <div className="container pt-16 px-5 max-lg:pt-20 max-md:pt-14 max-sm:pt-7">
+      <h2 className="text-5xl font-semibold leading-custom-3xl text-black-again tracking-[1.22px] max-lg:text-center max-lg:text-4xl max-md:text-3xl">
         Songs
       </h2>
       <div className="pb-11 flex gap-[52px] items-center justify-center max-[1023.98px]:flex-wrap max-lg:gap-9 max-md:gap-6">
