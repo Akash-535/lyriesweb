@@ -3,21 +3,18 @@ import { SONGS_LIST } from "../utils/helper";
 
 const Songs = () => {
   const [uploads, setUploads] = useState(null);
-  const [showImage, setShowImage] = useState(false);
 
   const handleChange = (e) => {
     const imgUpload = URL.createObjectURL(e);
     setUploads(imgUpload);
-    setShowImage(true);
   };
 
   const handleRemoveImage = () => {
     setUploads(null);
-    setShowImage(false);
   };
 
   return (
-    <div className="container pt-16 px-5 max-lg:pt-20 max-md:pt-14 max-sm:pt-7">
+    <div className="container pt-20 px-5 max-lg:pt-20 max-md:pt-14 max-sm:pt-7">
       <h2 className="text-5xl font-semibold leading-custom-3xl text-black-again tracking-[1.22px] max-lg:text-center max-lg:text-4xl max-md:text-3xl">
         Songs
       </h2>
@@ -84,14 +81,14 @@ const Songs = () => {
             <label
               htmlFor="my-input"
               className={`cursor-pointer text-white group-hover:scale-110 duration-300 ease-linear ${
-                showImage ? "hidden" : "block"
+                uploads ? "hidden" : "block"
               }`}
             >
               Add Place
             </label>
             <img
               className={`w-[300px] h-[600px] object-cover rounded-[20px] max-[1023.98px]:w-[500px] max-[1023.98px]:h-[400px] max-md:!w-[300px] ${
-                showImage ? "block" : "hidden"
+                uploads ? "block" : "hidden"
               }`}
               src={uploads}
               alt="image"
@@ -102,14 +99,14 @@ const Songs = () => {
             >
               <span
                 className={`duration-300 ease-linear transition-all ${
-                  showImage
+                  uploads
                     ? "h-0.5 w-7 bg-white rounded-lg rotate-45 translate-y-1.5"
                     : "h-0 w-0"
                 }`}
               ></span>
               <span
                 className={`duration-300 ease-linear transition-all ${
-                  showImage
+                  uploads
                     ? "h-0.5 w-7 bg-white rounded-lg -rotate-45 -translate-y-1"
                     : "h-0 w-0"
                 }`}
