@@ -73,7 +73,7 @@ const Songs = () => {
           </tbody>
         </table>
         <div>
-          <div className="bg-blue-500 relative w-[300px] h-[600px] mx-5 rounded-[20px] flex items-center justify-center text-center max-[1023.98px]:w-[500px] max-[1023.98px]:h-[400px] max-md:!w-[300px]">
+          <div className="bg-blue-500 group relative w-[300px] h-[600px] mx-5 rounded-[20px] flex items-center justify-center text-center max-[1023.98px]:w-[500px] max-[1023.98px]:h-[400px] max-md:!w-[300px]">
             <input
               type="file"
               id="my-input"
@@ -83,7 +83,7 @@ const Songs = () => {
             />
             <label
               htmlFor="my-input"
-              className={`cursor-pointer text-white ${
+              className={`cursor-pointer text-white group-hover:scale-110 duration-300 ease-linear ${
                 showImage ? "hidden" : "block"
               }`}
             >

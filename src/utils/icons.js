@@ -80,7 +80,7 @@ export const YouTubeIcon = () => (
 </svg>
 )
 
-export const PinrestIcon = () => (
+export const PintrestIcon = () => (
     <svg width="31" height="31" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2025_11)">
 <path d="M30.9419 15.4762C30.9419 6.92892 24.0153 0 15.4709 0C6.92658 0 0 6.92892 0 15.4762C0 24.0234 6.92658 30.9523 15.4709 30.9523C24.0153 30.9523 30.9419 24.0234 30.9419 15.4762Z" fill="#EB2732"/>

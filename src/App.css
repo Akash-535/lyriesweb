@@ -1,6 +1,6 @@
-.btn-arrow:hover svg path {
-  stroke: white;
-}
-.button-arrow svg path {
-  stroke: white;
+@media (max-width: 575.98px) {
+  .social-media-icon svg {
+    height: 26px;
+    width: 26px;
+  }
 }

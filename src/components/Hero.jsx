@@ -91,16 +91,18 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex items-center gap-[2px]">
-            {ALPHABET_LIST.map((item, index) => {
+            {ALPHABET_LIST.map((item, i) => {
               return (
                 <Link
                   onClick={(e) => {
                     e.preventDefault();
                     handleAlphabetChange(item);
                   }}
-                  key={index}
+                  key={i}
                   to="#"
-                  className="flex items-center hover:bg-custom-black size-7 justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl max-md:size-5"
+                  className={`flex items-center hover:bg-custom-black size-7 justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl max-md:size-5 ${
+                    alpha === item.toLowerCase() ? "!text-white !bg-black" : ""
+                  }`}
                 >
                   {item}
                 </Link>
