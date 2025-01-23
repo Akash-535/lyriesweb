@@ -21,9 +21,9 @@ const Hero = () => {
     navigate(`/${value}`);
   };
   useEffect(() => {
-    const initialAlpha = searchParams.get("alpha");
-    if (initialAlpha) {
-      setAlpha(initialAlpha);
+    const dominAlpha = searchParams.get("alpha");
+    if (dominAlpha) {
+      setAlpha(dominAlpha);
     }
     setDomain(value);
   }, [searchParams, value]);
@@ -62,35 +62,31 @@ const Hero = () => {
             >
               Rock
             </button>
-            {/* <select
-              className={`flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black btn-arrow ${
-                domain === "song" ? "!bg-black !text-white button-arrow" : ""
-              }`}
-              onClick={() => changeDomainHandler("more")}
-            >
-              More <DownArrowIcon />
-            </select> */}
             <div
-              className={`appearance-none flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black btn-arrow ${
-                domain === "song" ? "!bg-black !text-white button-arrow" : ""
+              className={`appearance-none cursor-pointer flex items-center gap-1 justify-center h-[29px] min-w-[64px] text-xs leading-6 border border-solid border-black rounded-[9px] bg-transparent transition-all ease-linear duration-300 hover:bg-black hover:text-white font-normal text-custom-black btn-arrow ${
+                domain === "more" || domain === "song" || domain === "music"
+                  ? "!bg-black !text-white button-arrow"
+                  : ""
               }`}
-              onClick={() => changeDomainHandler("more")}
             >
               <select
-                className={`outline-none bg-transparent ${
-                  domain === "song" ? "!bg-black !text-white button-arrow" : ""
+                value={domain}
+                onChange={(e) => changeDomainHandler(e.target.value)}
+                className={`outline-none bg-transparent cursor-pointer ${
+                  domain === "more" || domain === "song" || domain === "music"
+                    ? "!bg-black !text-white button-arrow"
+                    : ""
                 }`}
               >
-                <option value="Option 1" className="bg-black text-white">
+                <option value="more" className="bg-black text-white">
                   More
                 </option>
-                <option value="Option 2" className="bg-black text-white">
+                <option value="song" className="bg-black text-white">
                   Song
                 </option>
-                <option value="Option 3" className="bg-black text-white">
+                <option value="music" className="bg-black text-white">
                   Music
                 </option>
-                <DownArrowIcon />
               </select>
             </div>
           </div>
@@ -124,6 +120,10 @@ const Hero = () => {
               ? "Rock"
               : domain === "more"
               ? "More"
+              : domain === "song"
+              ? "Song"
+              : domain === "music"
+              ? "Music"
               : "Soft"}
           </h1>
           <img
