@@ -16,10 +16,11 @@ module.exports = {
     },
     extend: {
       colors: {
-        'off-white': "#FAFAFF",
+        'off-white': "#9F9DAB",
         'custom-black': "#14191C",
         'custom-gray': "#333333",
-        'light-purple':"#DBDBF3"
+        'light-purple':"#DBDBF3",
+        "black-again":"#2E2F37",
       },
       lineHeight:{
         "custom-3xl":"121%",
